@@ -3,14 +3,15 @@ import { useLocalStorage } from "./useLocalStorage";
 
 export const useDarkMode = (initialValue) => {
   const [mode, setMode] = useLocalStorage("light", initialValue);
-  const test = document.querySelector("body");
+  const isBody = document.querySelector("body");
   useEffect(() => {
     if (mode) {
-      test.classList.add("dark-mode");
+      isBody.classList.add("dark-mode");
     } else {
-      test.classList.remove("dark-mode");
+      isBody.classList.remove("dark-mode");
     }
   }, [mode]);
+  //why is this giving me a squiggle?
   return [mode, setMode];
 };
 
